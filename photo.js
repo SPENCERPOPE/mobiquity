@@ -11,7 +11,7 @@ var webcam = (function(){
 
         if (navigator.getUserMedia) {
 
-            navigator.getUserMedia({video: true, audio: true, toString : function() {return "video,audio";} }, onSuccess, onError);
+            navigator.getUserMedia({video: true, audio: false, toString : function() {return "video, audio";} }, onSuccess, onError);
 
         } else {
 
@@ -70,20 +70,20 @@ var webcam = (function(){
     function changeStatus(msg, error) {
         var status = document.getElementById('status');
         status.innerHTML = msg;
-        status.style.color = (error) ? 'red' : 'green';
+        status.style.color = (error) ? 'white' : 'green';
     }
 
 
     // allow the user to take a screenshot
     function setupPhotoBooth() {
         var takeButton = document.createElement('button');
-        takeButton.innerText = 'Smile!';
+        takeButton.innerText = 'Photo';
         takeButton.addEventListener('click', takePhoto, true);
         document.body.appendChild(takeButton);
 
         var saveButton = document.createElement('button');
         saveButton.id = 'save';
-        saveButton.innerText = 'Save!';
+        saveButton.innerText = 'Save';
         saveButton.disabled = true;
         saveButton.addEventListener('click', savePhoto, true);
         document.body.appendChild(saveButton);
