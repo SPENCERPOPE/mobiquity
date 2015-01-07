@@ -1,19 +1,49 @@
 <html>
 <head>
-<script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="qcpo53w9z2t0eq0"></script>
+    <script src="https://www.dropbox.com/static/api/dropbox-datastores-1.0-latest.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="app.js" defer="defer"></script>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
 
-
-  <title>Mobiquity Code Challenge</title>
 </head>
 
 <body>
-<a href="#" class="dropbox-saver">dropbox</a>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-  <p id="status" style="color:red">
+<p class="dropbox-saver"><a href="imageData" class="dropbox-saver"></a></p>
+<input type="dropbox-chooser" id="dp-chooser" name="selected-file" style="visibility: hidden;" data-link-type="direct" />
+<p class="image"><img id="selected-image" alt="Dropbox Selected Image" /></p>
+
+<p id="status" style="color:#bfbfbf">
 			<noscript>JavaScript is disabled.</noscript>
-  </p>
-		<script src="photo.js"></script>
+</p>
+		
+    <div id="login" class="btn btn-primary">Login with Dropbox</div>
+    <div id="app" class="well">
+        <ul id="todos" class="list-group">
+        </ul>
+        <input id="newTask" placeholder="Add Text"></input>
+        <div id="add" class="btn btn-primary">Add Text</div>    
+    </div>
+    
+<p id="output"></p>
+<p id="geo"></p>
+<button id="record">record audio</button> 
+<button id="stop">save audio</button>  
+<button onclick="getLocation()">location</button>          
+<div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<script src="photo.js"></script>
+<script src="audio.js"></script>
+<script src="geo.js"></script>
+<script src="https://www.dropbox.com/static/api/1/dropins.js" id="dropboxjs" data-app-key="twmqchqy5ks4ucn"></script>
 
 </body>
-
 </html>
